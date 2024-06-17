@@ -1,0 +1,357 @@
+@font-face {
+    font-family: '01_NTSomic-Regular';
+    font-family: '02_NTSomic-Medium';
+    src: url('font') format('ttf'),
+}
+body{
+    font-family: '01_NTSomic-Regular';
+    /* background-color: white; */
+    background-color:  #272727;
+    color: #61483d
+}
+
+/* header{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 200px;
+    background-color: #272727;;
+    font-size: 65px;
+    width: 100%;
+} */
+
+.conditions{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    
+    width: 100%;
+}
+.conditions-row{
+    width: 65%;
+    height: 250px;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    background-color: #e8e2cc;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgb(0, 0, 0); /* Тень, чтобы контейнер выделялся на фоне страницы */
+}
+.discont{
+    margin-top: 10px;
+    text-align: center;
+    font-family: '02_NTSomic-Medium';
+    color: #61483d;
+    font-size: 50px;
+}
+h6{
+    font-family: '02_NTSomic-Medium';
+    font-size: 20px;
+}
+.option-1{
+    margin-top: 10px;
+    text-align:center;
+    font-size: 20px;
+}
+
+.img-logo{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+
+.fixConteiner{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 70px;
+    width: 100%;
+    position: sticky; /* Позволяет элементу оставаться на месте при скроллинге */
+    top: 0; /* Располагает элемент у верхней границы контейнера */
+    z-index: 1000; /* Увеличьте значение z-index, чтобы элемент был поверх других */
+}
+.fixConteiner.sticky {
+    background-color: #61483d /* Цвет фона после закрепления */
+}
+.result{
+    display: grid;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    width: 65%;
+    height: 70px;
+    background-color: #e8e2cc;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgb(0, 0, 0);
+}
+
+.result.sticky {
+    background-color: #61483d;
+    color: #e8e2cc; /* Цвет текста после закрепления */
+}
+
+
+.progress-container{
+    /* position: fixed;
+    top: 10px; Расположение сверху */
+    display: flex;
+    justify-content: center;
+    
+}
+.custom-container{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 236px;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 300px 250px 410px 272px;
+    
+    width: 66%;
+}
+
+.logo{
+    margin: 0 auto;
+    height: 150px;
+    width: 250px;
+}
+
+
+
+/* .custom-container {
+    justify-content: center;
+    border-radius: 10px;
+    width: 1250px;
+} */
+
+
+.productName{
+    margin-bottom: -2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #e8e2cc;
+    text-align: center;
+    color: #61483d;
+}
+.img-container{
+    /* margin-top: -38px; */
+    height: 200px;
+    width: 300px;
+    
+}
+.imgCont{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5)
+}
+.imgCont:hover{
+    box-shadow: 10px 10px 15px rgb(0, 0, 0);
+}
+
+.full-width-img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover; /* Изображение будет заполнить контейнер, сохраняя соотношение сторон */
+}
+/*Описание*/
+.custom-description-container{
+    height: 236px;
+    width: 250px;
+    background-color: #e8e2cc;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.5)
+}
+.custom-description-container:hover{
+    box-shadow: 10px 10px 15px rgb(0, 0, 0);
+}
+
+.description-container{
+    margin-top: 21px;
+}
+/* Текст описания*/
+.description{
+    margin: 0px;
+    font-size: 20px;
+    line-height: 1.2; /* Установите значение по умолчанию для высоты строки (например, 1.2) */
+    margin-bottom: 5px; 
+}
+.price-container {
+    text-align: center;
+    margin-top: 15px;
+    background-color: #e8e2cc;
+    height: 40px;
+}
+
+.price {
+    margin: 0px;
+    font-size: 25px;
+    color: #61483d ;
+}
+
+ 
+/* цвета */
+.custom-color-container {
+    display: grid;
+    grid-template-columns: 170px 250px; 
+    grid-gap: 0px 10px; /* Расстояние между элементами, 5px по вертикали и 10px по горизонтали */
+    width: 410px; /* Ширина контейнера */
+    height: 236px; /* Высота контейнера */
+    align-items: center; /* Центрирование элементов по вертикали */
+    justify-items: center; /* Центрирование элементов по горизонтали */
+    background-color: #e8e2cc;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5)
+}
+.custom-color-container:hover{
+    box-shadow: 10px 10px 15px rgb(0, 0, 0);
+}
+
+.formCount p {
+    display: inline-block;
+    width: 80px; /* Ширина для выравнивания меток */
+    margin: 5px;
+    vertical-align: top; /* Выравнивание меток по верху */
+}
+
+.formCount input {
+    width: 40px; /* Ширина для ввода */
+    margin: 10px 0px; /* Отступы по горизонтали */
+    vertical-align: top; /* Выравнивание поля ввода по верху */
+}
+.formCount input:hover{
+    background-color: #bc987e71;
+    box-shadow: 1px -1px 5px rgb(0, 0, 0);
+}
+
+.colorCount {
+    background-color: #bc987eb9;
+    color: #61483d;
+    text-align: center;
+    border-radius: 5px;
+    border-style: hidden;
+    box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.label {
+    text-align: center;
+    width: 200px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: #bc987e3d;
+    color: #61483d;
+    box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.5);
+}
+.formLabel input{
+    margin: 10px 0px; /* Отступы по горизонтали */
+}
+
+.formLabel input:hover{
+    box-shadow: 1px -1px 5px rgb(0, 0, 0);
+}
+
+.colorCount:focus {
+    background-color: #bc987e71;
+    box-shadow: 1px -1px 5px rgb(0, 0, 0);
+    outline: none; /* Убираем стандартную обводку */
+}
+
+.label:focus {
+    background-color: #bc987e71;
+    box-shadow: 1px -1px 5px rgb(0, 0, 0);
+    outline: none; /* Убираем стандартную обводку */ 
+}
+
+
+
+
+
+/*Сумма по 1 товару*/
+.custom-sum-container{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 236px;
+    width: 276px;
+    background-color: #e8e2cc;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5)
+}
+.custom-sum-container:hover{
+    box-shadow: 10px 10px 15px rgb(0, 0, 0);
+}
+.sum{
+    text-align: center;
+    font-size: 50px;
+    background-color: #e8e2cc;
+    color: #61483d ; /* Цвет текста */
+    vertical-align: top;
+    
+}
+
+.buton{
+    margin: 20px;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+}
+.btn{
+    border-style:dashed;
+    margin: 10px;
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 40px; /* Увеличил высоту кнопки для лучшего отображения текста */
+    width: 210px;
+    font-size: 20px;
+    background-color: #61483d;
+    color: #e8e2cc;
+    box-shadow: 0px 10px 10px rgb(0, 0, 0);
+    display: flex;/
+}
+.btn:hover{
+    box-shadow: 0px 10px 10px #e8e2cc80;
+    background-color: #61483d;
+    color: #e8e2cc;
+}
+
+::placeholder{
+    color:  #61483db9;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 15px; /* Ширина вертикальной полосы прокрутки */
+    height: 15px; /* Высота горизонтальной полосы прокрутки */
+}
+
+/* Стилизация трека полосы прокрутки (фон) */
+::-webkit-scrollbar-track {
+    background: #272727; /* Цвет фона */
+}
+
+/* Стилизация ползунка полосы прокрутки */
+::-webkit-scrollbar-thumb {
+    background: rgba(66, 66, 66, 0.979);/* Цвет ползунка */
+    border-radius: 5px; /* Скругленные углы ползунка */
+}
+
+/* Стилизация ползунка при наведении */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(92, 92, 92); /* Цвет ползунка при наведении */
+}

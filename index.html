@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+        <link rel="stylesheet" href='main.css'>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+            crossorigin="anonymous"></script>
+        
+        <title>Живая сталь</title>
+    </head>
+<body>
+
+    <br>
+
+    <!-- <header>
+        <img src="images/Logo_Givaya_Stal.png" class="img-fluid logo" alt="logo">
+    </header> -->
+    <!-- ПРОГРЕСС СКИДОК -->
+    <!-- <div class="progress-container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="1235">Скидка 15%</div>
+        </div>
+    </div> -->
+    <div class="conditions">
+        <div class="conditions-row">
+            <div class="option-1">
+                <p>На любой вид колокольчиков может быть нанесена надпись</p>
+                <p>Доплата 1 рубль за букву.</p>
+            </div>
+            <div class="discont">
+                <h6>Минимальная сумма заказа 5000 рублей</h6>
+                <h6>От 15.000 рублей Скидка 10%</h6>
+                <h6>От 25.000 рублей Скидка 15%</h6>
+                <h6>От 50.000 рублей Скидка 20%</h6>
+                <h6>От 75.000 рублей Скидка 25%</h6>
+                <h6>От 100.000 рублей Скидка 30%</h6>
+                <h6>!Cкидка не распространяется на надписи!</h6>
+            </div>
+            <div class="img-logo">
+                <img src="images/Logo_Givaya_Stal.png" class="img-fluid logo" alt="logo">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="fixConteiner" id="fixConteiner" >
+        <div class="result" id="result">
+            <h4 id="allsum">Общая сумма 0 рублей</h4>
+            <h4 id="minusPercent">Сумма с учетом скидки</h4>
+            <h4 id='labelPrice'>Цена за надписи</h4>
+        </div>
+    </div>
+
+    <div class="buton">
+        <button class="btn" onclick="pass">Сформировать заказ</button>
+    </div>
+
+    <!-- Эланор -->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName" id="NameTitel">Эланор</h2>
+            <img src="images/Elanor.jpeg" class="img-fluid imgCont full-width-img" alt="Elanor">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 80-90мм</p>
+                <p class="description">Высота купола: 50мм</п>
+                <p class="description">Диаметр основания: 40мм</п>
+                <p class="description">Артикул 30.30.00</p> </div>
+                <div class="price-container"><p class="price" id="ЭланорЦена"></p></div>
+            </div>
+            
+            <div class="custom-color-container">
+                <form  class="formCount" id="Эланор">
+                    <p>Сталь</p>
+                    <input class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="input1Elanor" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="input2Elanor" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="input3Elanor" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="input4Elanor" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="input5Elanor" placeholder="0">
+                </form>
+                <form class="formLabel" id="ЭланорНадпись">
+                    <input disabled class ="label"  onkeydown="inputTitle(event, this.id)"   name="Сталь"      id="inputTitle1Elanor" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"  name="Золото"     id="inputTitle2Elanor" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"  name="Медь"       id="inputTitle3Elanor" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"  name="Серебро"    id="inputTitle4Elanor" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"  name="Бронза"     id="inputTitle5Elanor" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container" id="sm">
+                <p id="ЭланорСумма" class="sum">0</p> 
+                <!-- <button class="btn" onclick="Sending_server()">СОБРАТЬ</button> -->
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!--Nifredil S-->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Нифредил S</h2>
+            <img src="" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 95-105мм</p>
+                    <p class="description">Высота купола: 45-55мм</п>
+                    <p class="description">Диаметр основания: 45мм</п>
+                    <p class="description">Артикул 025.01.01</p> </div>
+                    <div class="price-container"><p class="price" id="Нифредил SЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Нифредил S">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputNifredilS1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputNifredilS2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputNifredilS3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputNifredilS4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputNifredilS5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Нифредил SНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleNifredilS1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleNifredilS2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleNifredilS3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleNifredilS4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleNifredilS5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Нифредил SСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Нифредил М -->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Нифредил М</h2>
+            <img src="" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 135-145мм</p>
+                    <p class="description">Высота купола: 60-75мм</п>
+                    <p class="description">Диаметр основания: 55мм</п>
+                    <p class="description">Артикул: 032.01.01</p> </div>
+                    <div class="price-container"><p class="price" id="Нифредил MЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Нифредил M">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputNifredilM1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputNifredilM2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputNifredilM3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputNifredilM4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputNifredilM5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Нифредил MНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleNifredilM1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleNifredilM2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleNifredilM3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleNifredilM4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleNifredilM5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Нифредил MСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Вилварин XS-->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Вилварин XS</h2>
+            <img src="images/ВилваринXS.JPG" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 95мм</p>
+                    <p class="description">Высота купола: 45мм</п>
+                    <p class="description">Диаметр основания: 35мм</п>
+                    <p class="description">Артикул 020.02.11</p> </div>
+                    <div class="price-container"><p class="price" id="Вилварин XSЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Вилварин XS">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputVilvarinXS1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputVilvarinXS2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputVilvarinXS3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputVilvarinXS4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputVilvarinXS5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Вилварин XSНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleVilvarinXS1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleVilvarinXS2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleVilvarinXS3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleVilvarinXS4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleVilvarinXS5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Вилварин XSСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+    
+    <!-- Вилварин S -->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Вилварин S</h2>
+            <img src="images/ВилваринS.JPG" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 110-120мм</p>
+                    <p class="description">Высота купола: 50-55мм</п>
+                    <p class="description">Диаметр основания: 45мм</п>
+                    <p class="description">Артикул 025.02.11</p> </div>
+                    <div class="price-container"><p class="price" id="Вилварин SЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Вилварин S">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputVilvarinS1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputVilvarinS2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputVilvarinS3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputVilvarinS4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputVilvarinS5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Вилварин SНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleVilvarinS1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleVilvarinS2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleVilvarinS3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleVilvarinS4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleVilvarinS5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Вилварин SСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Маллорн ХS -->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Маллорн ХS</h2>
+            <img src="images/Маллорн xs.JPG" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 80-90мм</p>
+                    <p class="description">Высота купола: 45мм</п>
+                    <p class="description">Диаметр основания: 35мм</п>
+                    <p class="description">Артикул 020.02.02</p> </div>
+                    <div class="price-container"><p class="price" id="Маллорн XSЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Маллорн XS">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputMallornXS1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputMallornXS2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputMallornXS3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputMallornXS4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputMallornXS5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Маллорн XSНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleMallornXS1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleMallornXS2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleMallornXS3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleMallornXS4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleMallornXS5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Маллорн XSСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Маллорн S -->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Маллорн S</h2>
+            <img src="images/Маллорн S.JPG" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 105-110мм</p>
+                    <p class="description">Высота купола: 55-50мм</п>
+                    <p class="description">Диаметр основания: 45мм</п>
+                    <p class="description">Артикул 025.02.02</p> </div>
+                    <div class="price-container"><p class="price" id="Маллорн SЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Маллорн S">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputMallornS1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputMallornS2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputMallornS3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputMallornS4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputMallornS5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Маллорн SНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleMallornS1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleMallornS2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleMallornS3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleMallornS4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleMallornS5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Маллорн SСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Маллорн M -->
+    <div class="custom-container">
+        <div class="row">
+            <div class="img-container">
+            <h2 class="productName">Маллорн M</h2>
+            <img src="images/Маллорн М.JPG" class="img-fluid imgCont full-width-img" alt="фото">
+            </div>
+            <div class="custom-description-container">    
+                <div class="description-container"><p class="description">Высота: 150-160мм</p>
+                    <p class="description">Высота купола: 70-75мм</п>
+                    <p class="description">Диаметр основания: 55мм</п>
+                    <p class="description">Артикул 040.02.02</p> </div>
+                    <div class="price-container"><p class="price" id="Маллорн MЦена"></p></div>
+            </div>
+            <div class="custom-color-container">
+
+                <form  class="formCount" id="Маллорн M">
+                    <p>Сталь</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="inputMallornM1" placeholder="0">
+                    <p>Золото</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="inputMallornS2" placeholder="0">
+                    <p>Медь</p> 
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Медь"      id="inputMallornS3" placeholder="0">
+                    <p>Серебро</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Серебро"   id="inputMallornS4" placeholder="0">
+                    <p>Бронза</p>
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Бронза"    id="inputMallornS5" placeholder="0">
+                </form>
+                <form class="formLabel" id="Маллорн MНадпись">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Сталь"   id="inputTitleMallornM1" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Золото"  id="inputTitleMallornM2" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Медь"    id="inputTitleMallornM3" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Серебро" id="inputTitleMallornM4" placeholder="">
+                    <input disabled class ="label"   onkeydown="inputTitle(event, this.id)"   name="Бронза"  id="inputTitleMallornM5" placeholder="">
+                </form>
+            </div>                
+            <div class="custom-sum-container">
+                <p id="Маллорн MСумма" class="sum">0</p> 
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+
+
+
+
+    <div class="buton">
+        <button class="btn" onclick="pass">Сформировать заказ</button>
+    </div>
+
+  
+    <script src="js/main.js"></script>
+    
+
+<!-- Модальное окно -->
+ 
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="modalImage" src="" class="img-fluid" alt="Zoomed Image">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var zoomableImages = document.querySelectorAll('.imgCont');
+        var modalImage = document.getElementById('modalImage');
+        zoomableImages.forEach(function(image) {
+            image.addEventListener('click', function() {
+                var src = image.getAttribute('src');
+                modalImage.setAttribute('src', src);
+                var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                imageModal.show();
+            });
+        });
+    });
+</script>
+
+
+<!-- скрипт счетчика сумм -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var container = document.getElementById("fixConteiner");
+        var result = document.getElementById("result");
+        var stickyPoint = container.offsetTop;
+
+        window.addEventListener("scroll", function() {
+            if (window.pageYOffset >= stickyPoint) {
+                result.classList.add("sticky");
+            } else {
+                result.classList.remove("sticky");
+            }
+        });
+    });
+</script>
+</body>
+</html>
