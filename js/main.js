@@ -254,7 +254,7 @@ function main(color,inputID,formID){
     // Получаем элемент по переданному идентификатору
     var count_Id = document.getElementById(inputID);
     console.log(count_Id.value)
-    if(count_Id.value.length <= 0){
+    if(count_Id.value.length <= 0 || count_Id.value.length > 5 || count_Id.value < 0 ){
         color_count = 0
     }else{
         color_count = parseFloat(count_Id.value)

@@ -20,14 +20,16 @@ body{
     width: 100%;
 } */
 
-.conditions{
+.conditions {
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
-    
     width: 100%;
 }
-.conditions-row{
+.conditions-row {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
     width: 65%;
     height: 250px;
     display: grid;
@@ -36,31 +38,30 @@ body{
     border-radius: 10px;
     box-shadow: 0px 10px 10px rgb(0, 0, 0); /* Тень, чтобы контейнер выделялся на фоне страницы */
 }
-.discont{
+.discont {
     margin-top: 10px;
     text-align: center;
     font-family: '02_NTSomic-Medium';
     color: #61483d;
     font-size: 50px;
 }
-h6{
+h6 {
     font-family: '02_NTSomic-Medium';
     font-size: 20px;
 }
-.option-1{
+.option-1 {
     margin-top: 10px;
-    text-align:center;
+    text-align: center;
     font-size: 20px;
 }
-
-.img-logo{
+.img-logo {
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
 }
 
-
-.fixConteiner{
+/* Стили для фиксированного контейнера */
+.fixConteiner {
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
@@ -69,11 +70,12 @@ h6{
     position: sticky; /* Позволяет элементу оставаться на месте при скроллинге */
     top: 0; /* Располагает элемент у верхней границы контейнера */
     z-index: 1000; /* Увеличьте значение z-index, чтобы элемент был поверх других */
+    
 }
 .fixConteiner.sticky {
     background-color: #61483d /* Цвет фона после закрепления */
 }
-.result{
+.result {
     display: grid;
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
@@ -84,21 +86,16 @@ h6{
     text-align: center;
     border-radius: 10px;
     box-shadow: 0px 10px 10px rgb(0, 0, 0);
+    
 }
-
 .result.sticky {
     background-color: #61483d;
     color: #e8e2cc; /* Цвет текста после закрепления */
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 
-.progress-container{
-    /* position: fixed;
-    top: 10px; Расположение сверху */
-    display: flex;
-    justify-content: center;
-    
-}
 .custom-container{
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */
@@ -119,13 +116,6 @@ h6{
     width: 250px;
 }
 
-
-
-/* .custom-container {
-    justify-content: center;
-    border-radius: 10px;
-    width: 1250px;
-} */
 
 
 .productName{
@@ -355,3 +345,6 @@ h6{
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(92, 92, 92); /* Цвет ползунка при наведении */
 }
+
+
+
