@@ -11,15 +11,15 @@ product_price = {'Эланор' :165, 'Нифредил S' :247.5, 'Нифред
 
 document.getElementById('ЭланорЦена').innerHTML = product_price['Эланор'] + ' рублей'
 
-document.getElementById('Нифредил SЦена').innerHTML = product_price['Нифредил S'] + ' рублей'
-document.getElementById('Нифредил MЦена').innerHTML = product_price['Нифредил M'] + ' рублей'
+// document.getElementById('Нифредил SЦена').innerHTML = product_price['Нифредил S'] + ' рублей'
+// document.getElementById('Нифредил MЦена').innerHTML = product_price['Нифредил M'] + ' рублей'
 
-document.getElementById('Вилварин XSЦена').innerHTML = product_price['Вилварин XS'] + ' рублей'
-document.getElementById('Вилварин SЦена').innerHTML = product_price['Вилварин S'] + ' рублей'
+// document.getElementById('Вилварин XSЦена').innerHTML = product_price['Вилварин XS'] + ' рублей'
+// document.getElementById('Вилварин SЦена').innerHTML = product_price['Вилварин S'] + ' рублей'
 
-document.getElementById('Маллорн XSЦена').innerHTML = product_price['Маллорн XS'] + ' рублей'
-document.getElementById('Маллорн SЦена').innerHTML = product_price['Маллорн S'] + ' рублей'
-document.getElementById('Маллорн MЦена').innerHTML = product_price['Маллорн M'] + ' рублей'
+// document.getElementById('Маллорн XSЦена').innerHTML = product_price['Маллорн XS'] + ' рублей'
+// document.getElementById('Маллорн SЦена').innerHTML = product_price['Маллорн S'] + ' рублей'
+// document.getElementById('Маллорн MЦена').innerHTML = product_price['Маллорн M'] + ' рублей'
 // document.getElementById('Маллорн LЦена').innerHTML = product_price['Маллорн L'] + ' рублей'
 
 context = {
@@ -198,11 +198,11 @@ function sum(array,product_name) {
     
     var result_str = 'Итого: '+sum_card+'р.'
    
-    if (sum_card > 0){
-        document.getElementById(sumID).innerHTML = result_str
-    }else{
-        document.getElementById(sumID).innerHTML = 0
-    }
+    // if (sum_card > 0){
+    //     document.getElementById(sumID).innerHTML = result_str
+    // }else{
+    //     document.getElementById(sumID).innerHTML = 0
+    // }
     updateAllPriceAndSum(product_name,sum_card)
     
 }
