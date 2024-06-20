@@ -22,13 +22,11 @@ body{
 
 .conditions {
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
+    justify-content: center;
     align-items: center; /* Центрирование по вертикали */
-    width: 100%;
 }
 .conditions-row {
-    display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
+    
     align-items: center; /* Центрирование по вертикали */
     width: 65%;
     height: 250px;
@@ -89,6 +87,7 @@ h6 {
     
 }
 .result.sticky {
+    width: 70%;
     background-color: #61483d;
     color: #e8e2cc; /* Цвет текста после закрепления */
     border-top-left-radius: 0px;
@@ -101,13 +100,16 @@ h6 {
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
     height: 236px;
+    width: 100%;
 }
 
 .row{
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    width: 65%;
     display: grid;
     grid-template-columns: 300px 250px 410px 272px;
     
-    width: 66%;
 }
 
 .logo{

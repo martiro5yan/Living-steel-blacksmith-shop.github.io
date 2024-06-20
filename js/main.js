@@ -22,18 +22,20 @@ document.getElementById('Маллорн SЦена').innerHTML = product_price['�
 document.getElementById('Маллорн MЦена').innerHTML = product_price['Маллорн M'] + ' рублей'
 // document.getElementById('Маллорн LЦена').innerHTML = product_price['Маллорн L'] + ' рублей'
 
-// var labels = []
-// function addLibels(line){
-//     if(!labels.includes(line))
-//         labels.push(line)
-// }
-function formatNumber(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+context = {
+    'Сумма за надписи' :0,
+    'Итог без скидки' :0,
+    'Итог со скидкой' :0
 }
 
 
+// function formatNumber(number) {
+//     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+// }
+
+
 function Calculating_discount(sum){
-    var result = 0
+    
     var percent_10 = 0.10
     var percent_15 = 0.15
     var percent_20 = 0.20
@@ -41,36 +43,36 @@ function Calculating_discount(sum){
     var percent_30 = 0.30
 
     if (sum > 15000 && sum < 25000){
-        result = sum - (sum * percent_10)
-        result = formatNumber(result)
-        document.getElementById('minusPercent').innerHTML = '-10% = ' + result + ' рублей'
+        context['Итог со скидкой'] = sum - (sum * percent_10)
+        // context['Итог со скидкой'] = formatNumber(context['Итог со скидкой'])
+        document.getElementById('minusPercent').innerHTML = '-10% = ' + context['Итог со скидкой'] + ' рублей'
     }
     else if(sum > 25000 && sum < 50000){
-        result = sum - (sum * percent_15)
-        result = formatNumber(result)
-        document.getElementById('minusPercent').innerHTML = '-15% = ' + result + ' рублей'
+        context['Итог со скидкой'] = sum - (sum * percent_15)
+        // context['Итог со скидкой'] = formatNumber(context['Итог со скидкой'])
+        document.getElementById('minusPercent').innerHTML = '-15% = ' + context['Итог со скидкой'] + ' рублей'
     }
     else if(sum > 50000 && sum < 75000){
-        result = sum - (sum * percent_20)
-        result = formatNumber(result)
-        document.getElementById('minusPercent').innerHTML = '-20% = ' + result + ' рублей'
+        context['Итог со скидкой'] = sum - (sum * percent_20)
+        // context['Итог со скидкой'] = formatNumber(context['Итог со скидкой'])
+        document.getElementById('minusPercent').innerHTML = '-20% = ' + context['Итог со скидкой'] + ' рублей'
     }
     else if(sum > 75000 && sum < 100000){
-        result = sum - (sum * percent_25)
-        result = formatNumber(result)
-        document.getElementById('minusPercent').innerHTML = '-25% = ' + result + ' рублей'
+        context['Итог со скидкой'] = sum - (sum * percent_25)
+        // context['Итог со скидкой'] = formatNumber(context['Итог со скидкой'])
+        document.getElementById('minusPercent').innerHTML = '-25% = ' + context['Итог со скидкой'] + ' рублей'
     }
     else if(sum > 100000){
-        result = sum - (sum * percent_30)
-        result = formatNumber(result)
-        document.getElementById('minusPercent').innerHTML = '-30% = ' + result + ' рублей'
+        context['Итог со скидкой'] = sum - (sum * percent_30)
+        // context['Итог со скидкой'] = formatNumber(context['Итог со скидкой'])
+        document.getElementById('minusPercent').innerHTML = '-30% = ' + context['Итог со скидкой'] + ' рублей'
     }
 }
 
 
 // подсчет стоимости надписей
 function calculateAmountForLabels(dict){
-    let totalResult = 0;
+    
 // Проходимся по каждому ключу в объекте completedOrder
     for (let key in dict) {
         if (dict.hasOwnProperty(key)) {
@@ -89,14 +91,14 @@ function calculateAmountForLabels(dict){
                     let multipliedValue = secondElement * thirdElement.length;
                     
                     // Добавляем к общему результату
-                    totalResult += multipliedValue;
+                    context['Сумма за надписи'] += multipliedValue;
                 }
             }
         }
     }
-    totalResult = formatNumber(totalResult)
-    document.getElementById('labelPrice').innerHTML = 'цена за надписи ' +totalResult + ' рублей'
-    console.log(totalResult)
+    // context['Сумма за написи'] = formatNumber(context['Сумма за написи'])
+    document.getElementById('labelPrice').innerHTML = 'цена за надписи ' +context['Сумма за надписи'] + ' рублей'
+    console.log(context['Сумма за надписи'])
 }
 
 
@@ -123,17 +125,17 @@ function processCompletedOrder(productInventory) {
 
 function allSum(arry_all_prices){
     
-    var result = 0;
+    // let result = 0
     for (var i = 0; i < arry_all_prices.length; i++) {
         // Проверяем, является ли текущий элемент массивом и имеет ли он хотя бы 2 элемента
         if (Array.isArray(arry_all_prices[i]) && arry_all_prices[i].length >= 2) {
             // Если да, то добавляем к результату элемент с индексом 1 вложенного массива
-            result += arry_all_prices[i][1];
+            context['Итог без скидки'] += arry_all_prices[i][1];
         }
     }
-    Calculating_discount(result)
+    Calculating_discount(context['Итог без скидки'])
 
-    document.getElementById('allsum').innerHTML = 'Общая сумма ' + formatNumber(result) + ' рублей'
+    document.getElementById('allsum').innerHTML = 'Общая сумма ' + context['Итог без скидки'] + ' рублей'
 }
 
 
@@ -181,27 +183,27 @@ function updateAllPriceAndSum(product_name,sum){
 }
 
 function sum(array,product_name) {
-    var result = 0;
+    var sum_card = 0;
     for (var i = 0; i < array.length; i++) {
         // Проверяем, является ли текущий элемент массивом и имеет ли он хотя бы 2 элемента
         if (Array.isArray(array[i]) && array[i].length >= 2) {
             // Если да, то добавляем к результату элемент с индексом 1 вложенного массива
-            result += array[i][1];
+            sum_card += array[i][1];
         }
     }
-    console.log(result)
+    console.log(sum_card)
     var line = 'Сумма'
     var sumID = product_name + line
     
     
-    var result_str = 'Итого: '+result+'р.'
+    var result_str = 'Итого: '+sum_card+'р.'
    
-    if (result > 0){
+    if (sum_card > 0){
         document.getElementById(sumID).innerHTML = result_str
     }else{
         document.getElementById(sumID).innerHTML = 0
     }
-    updateAllPriceAndSum(product_name,result)
+    updateAllPriceAndSum(product_name,sum_card)
     
 }
 
@@ -297,4 +299,63 @@ function inputTitle(event,inputID){
 }
 
 
+function formatJson(jsonData) {
+    let formattedString = `Итог без скидки: ${context['Итог без скидки']} руб\nИтог со скидкой: ${context['Итог со скидкой']} руб\nСумма за надписи: ${context['Сумма за надписи']} руб\n\n`;
+    for (const [key, value] of Object.entries(jsonData)) {
+        // Преобразование каждого подмассива в строку с форматом [массив]
+        const formattedValue = value.map(subArray => `[${subArray}]`).join('\n   ');
+        
+        // Добавление ключа и отформатированного значения в строку
+        formattedString += `${key}:\n   ${formattedValue} \n\n`;
+    }
+    // Удаляем последнюю запятую и добавляем закрывающую скобку
+    // formattedString = formattedString.slice(0, -2) + "\n";
+    return formattedString;
+  }
 
+
+// async function sendJson() {
+   
+//     // Преобразуем JSON-словарь в строку для отправки в Telegram
+//     const jsonString = formatJson(completedOrder)
+
+    
+    
+//     // Формируем URL для отправки сообщения через Telegram Bot API
+//     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+//     // Формируем тело запроса, используя JSON строку в качестве текста сообщения
+//     const body = {
+//       chat_id: chatId,
+//       text: jsonString,
+//       parse_mode: 'Markdown' // Используем Markdown для форматирования текста
+//     };
+
+//     try {
+//       // Отправляем запрос с помощью fetch
+//       const response = await fetch(url, {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(body)
+//       });
+
+//       // Парсим ответ в формате JSON
+//       const result = await response.json();
+
+//       // Логируем результат для отладки
+//       console.log(result);
+
+//       // Проверяем результат и выводим соответствующее сообщение
+//       if (result.ok) {
+//         alert('Заказ сформирован');
+//       } else {
+//         alert('Failed to send JSON: ' + result.description);
+//       }
+//     } catch (error) {
+//       // Логируем ошибку и выводим сообщение об ошибке
+//       console.error('Error sending JSON:', error);
+//       alert('Error sending JSON: ' + error.message);
+//     }
+//   }

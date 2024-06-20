@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
         <link rel="stylesheet" href='main.css'>
+        <link rel="stylesheet" href='mobStyle.css'>
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
@@ -46,7 +47,7 @@
     </div>
 
     <div class="buton">
-        <button class="btn" onclick="pass">Сформировать заказ</button>
+        <button class="btn" onclick="sendJson()">Сформировать заказ</button>
     </div>
 
     <!-- Эланор -->
@@ -67,7 +68,7 @@
             <div class="custom-color-container">
                 <form  class="formCount" id="Эланор">
                     <p>Сталь</p>
-                    <input class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="input1Elanor" placeholder="0">
+                    <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Сталь"     id="input1Elanor" placeholder="0">
                     <p>Золото</p>
                     <input inputmode="numeric" class="colorCount" oninput="main(this.name, this.id, this.form.id)" name="Золото"    id="input2Elanor" placeholder="0">
                     <p>Медь</p> 
@@ -401,7 +402,7 @@
 
 
     <div class="buton">
-        <button class="btn" onclick="pass">Сформировать заказ</button>
+        <button class="btn" onclick="sendJson()">Сформировать заказ</button>
     </div>
 
   
