@@ -11,16 +11,6 @@ product_price = {'Эланор' :165, 'Нифредил S' :247.5, 'Нифред
 
 document.getElementById('ЭланорЦена').innerHTML = product_price['Эланор'] + ' рублей'
 
-// document.getElementById('Нифредил SЦена').innerHTML = product_price['Нифредил S'] + ' рублей'
-// document.getElementById('Нифредил MЦена').innerHTML = product_price['Нифредил M'] + ' рублей'
-
-// document.getElementById('Вилварин XSЦена').innerHTML = product_price['Вилварин XS'] + ' рублей'
-// document.getElementById('Вилварин SЦена').innerHTML = product_price['Вилварин S'] + ' рублей'
-
-// document.getElementById('Маллорн XSЦена').innerHTML = product_price['Маллорн XS'] + ' рублей'
-// document.getElementById('Маллорн SЦена').innerHTML = product_price['Маллорн S'] + ' рублей'
-// document.getElementById('Маллорн MЦена').innerHTML = product_price['Маллорн M'] + ' рублей'
-// document.getElementById('Маллорн LЦена').innerHTML = product_price['Маллорн L'] + ' рублей'
 
 context = {
     'Сумма за надписи' :0,
@@ -314,48 +304,48 @@ function formatJson(jsonData) {
   }
 
 
-// async function sendJson() {
+async function sendJson() {
    
-//     // Преобразуем JSON-словарь в строку для отправки в Telegram
-//     const jsonString = formatJson(completedOrder)
+    // Преобразуем JSON-словарь в строку для отправки в Telegram
+    const jsonString = formatJson(completedOrder)
 
     
     
-//     // Формируем URL для отправки сообщения через Telegram Bot API
-//     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    // Формируем URL для отправки сообщения через Telegram Bot API
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-//     // Формируем тело запроса, используя JSON строку в качестве текста сообщения
-//     const body = {
-//       chat_id: chatId,
-//       text: jsonString,
-//       parse_mode: 'Markdown' // Используем Markdown для форматирования текста
-//     };
+    // Формируем тело запроса, используя JSON строку в качестве текста сообщения
+    const body = {
+      chat_id: chatId,
+      text: jsonString,
+      parse_mode: 'Markdown' // Используем Markdown для форматирования текста
+    };
 
-//     try {
-//       // Отправляем запрос с помощью fetch
-//       const response = await fetch(url, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(body)
-//       });
+    try {
+      // Отправляем запрос с помощью fetch
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
 
-//       // Парсим ответ в формате JSON
-//       const result = await response.json();
+      // Парсим ответ в формате JSON
+      const result = await response.json();
 
-//       // Логируем результат для отладки
-//       console.log(result);
+      // Логируем результат для отладки
+      console.log(result);
 
-//       // Проверяем результат и выводим соответствующее сообщение
-//       if (result.ok) {
-//         alert('Заказ сформирован');
-//       } else {
-//         alert('Failed to send JSON: ' + result.description);
-//       }
-//     } catch (error) {
-//       // Логируем ошибку и выводим сообщение об ошибке
-//       console.error('Error sending JSON:', error);
-//       alert('Error sending JSON: ' + error.message);
-//     }
-//   }
+      // Проверяем результат и выводим соответствующее сообщение
+      if (result.ok) {
+        alert('Заказ сформирован');
+      } else {
+        alert('Failed to send JSON: ' + result.description);
+      }
+    } catch (error) {
+      // Логируем ошибку и выводим сообщение об ошибке
+      console.error('Error sending JSON:', error);
+      alert('Error sending JSON: ' + error.message);
+    }
+  }
